@@ -1,0 +1,221 @@
+[gd_scene load_steps=14 format=3 uid="uid://dgvnp5f71x0ji"]
+
+[ext_resource type="Texture2D" uid="uid://cjv3fvmxquo3q" path="res://sprite/button/normal-button.png" id="1_6enx1"]
+[ext_resource type="Script" path="res://gdScript/setting.gd" id="1_450pj"]
+[ext_resource type="FontFile" uid="uid://ddximxi3x03yj" path="res://font/PixelOperator8.ttf" id="2_kjdyx"]
+[ext_resource type="Texture2D" uid="uid://c3ycdbnabqqct" path="res://sprite/button/focus-button.png" id="3_4qlgp"]
+[ext_resource type="Texture2D" uid="uid://cisvktak8as06" path="res://sprite/ui/range-button-3.png" id="5_vb574"]
+[ext_resource type="Texture2D" uid="uid://b70gj7ptu6s32" path="res://sprite/gamehub arcade.png" id="6_cxvud"]
+[ext_resource type="Texture2D" uid="uid://kxe6jhkfr0jw" path="res://sprite/ui/ui_left.png" id="7_5ot08"]
+[ext_resource type="Texture2D" uid="uid://bo6i2wb6tyty8" path="res://sprite/ui/ui_left_pressed.png" id="8_4xpe5"]
+[ext_resource type="LabelSettings" uid="uid://co2e0c20pf5eo" path="res://ui/label-mainMenu.tres" id="9_xepin"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7whcg"]
+font = ExtResource("2_kjdyx")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hitys"]
+font = ExtResource("2_kjdyx")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ag0hm"]
+font = ExtResource("2_kjdyx")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_52wad"]
+font = ExtResource("2_kjdyx")
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_450pj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -280.0
+offset_right = 24.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.976, 2.041)
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_6enx1")
+texture_focused = ExtResource("3_4qlgp")
+
+[node name="bgm-section" type="HBoxContainer" parent="VBoxContainer/TextureButton2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -12.0
+offset_right = 640.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton2/bgm-section"]
+layout_mode = 2
+text = "BGM
+"
+label_settings = SubResource("LabelSettings_7whcg")
+
+[node name="Control" type="Control" parent="VBoxContainer/TextureButton2/bgm-section"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/TextureButton2/bgm-section"]
+layout_mode = 2
+texture = ExtResource("5_vb574")
+expand_mode = 2
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TextureButton4" type="TextureButton" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_6enx1")
+texture_focused = ExtResource("3_4qlgp")
+
+[node name="sfx-section" type="HBoxContainer" parent="VBoxContainer/TextureButton4"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -12.0
+offset_right = 640.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton4/sfx-section"]
+auto_translate_mode = 1
+layout_mode = 2
+text = "SFX"
+label_settings = SubResource("LabelSettings_hitys")
+
+[node name="Control2" type="Control" parent="VBoxContainer/TextureButton4/sfx-section"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/TextureButton4/sfx-section"]
+auto_translate_mode = 1
+layout_mode = 2
+texture = ExtResource("5_vb574")
+expand_mode = 2
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_6enx1")
+texture_focused = ExtResource("3_4qlgp")
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -9.5
+offset_right = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "CONTROL"
+label_settings = SubResource("LabelSettings_ag0hm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_6enx1")
+texture_focused = ExtResource("3_4qlgp")
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton3"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -12.0
+offset_right = 640.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "QUIT
+"
+label_settings = SubResource("LabelSettings_52wad")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GamehubArcade" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("6_cxvud")
+
+[node name="Label" type="Label" parent="GamehubArcade"]
+offset_left = -520.0
+offset_top = -328.0
+offset_right = -442.0
+offset_bottom = -304.0
+scale = Vector2(2, 2)
+text = "QUIT"
+label_settings = ExtResource("9_xepin")
+
+[node name="TextureButton" type="TextureButton" parent="GamehubArcade"]
+offset_left = -608.0
+offset_top = -344.0
+offset_right = -352.0
+offset_bottom = -88.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("7_5ot08")
+texture_focused = ExtResource("8_4xpe5")
+
+[connection signal="pressed" from="VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton4" to="." method="_on_texture_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GamehubArcade/TextureButton" to="." method="_on_texture_button_pressed_child"]

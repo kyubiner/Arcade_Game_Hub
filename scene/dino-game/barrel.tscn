@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cahu7q5kw0abu"]
+
+[ext_resource type="Texture2D" uid="uid://diuft7m6yv7a6" path="res://sprite/dino game/obstacle/barrel.png" id="1_ub8gy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou4gf"]
+size = Vector2(26, 26)
+
+[node name="barrel" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_ub8gy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_ou4gf")

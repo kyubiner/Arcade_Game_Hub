@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://co2e0c20pf5eo"]
+
+[ext_resource type="FontFile" uid="uid://ddximxi3x03yj" path="res://font/PixelOperator8.ttf" id="1_ln2go"]
+
+[resource]
+font = ExtResource("1_ln2go")
+font_size = 24
+font_color = Color(0, 0, 0, 1)

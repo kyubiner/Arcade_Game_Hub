@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh34uxwdskih8"]
+
+[ext_resource type="Texture2D" uid="uid://4pobmy33igs5" path="res://sprite/dino game/background/parallax background/plx-1.png" id="1_7vrr3"]
+[ext_resource type="Texture2D" uid="uid://xs67ed86kcga" path="res://sprite/dino game/background/parallax background/plx-2.png" id="2_d1p41"]
+[ext_resource type="Texture2D" uid="uid://df4wjv1h3n47" path="res://sprite/dino game/background/parallax background/plx-3.png" id="3_veyvv"]
+[ext_resource type="Texture2D" uid="uid://cxkpa51s1yjcg" path="res://sprite/dino game/background/parallax background/plx-4.png" id="4_kxfw3"]
+[ext_resource type="Texture2D" uid="uid://di4tc7qxgaygo" path="res://sprite/dino game/background/parallax background/plx-5.png" id="5_poiwf"]
+
+[node name="Bg" type="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.33333, 3.33796)
+texture = ExtResource("1_7vrr3")
+centered = false
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+scale = Vector2(3.33594, 3.33796)
+texture = ExtResource("2_d1p41")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+scale = Vector2(3.33594, 3.33796)
+texture = ExtResource("3_veyvv")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+scale = Vector2(3.33594, 3.33796)
+texture = ExtResource("4_kxfw3")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+scale = Vector2(3.33594, 3.33796)
+texture = ExtResource("5_poiwf")
+centered = false

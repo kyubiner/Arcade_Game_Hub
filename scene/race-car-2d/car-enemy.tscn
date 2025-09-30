@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d5ntpeo3tdr6"]
+
+[ext_resource type="Script" path="res://gdScript/Race-car-2d/car_enemy.gd" id="1_oxmnl"]
+[ext_resource type="Texture2D" uid="uid://crp2ww0xnpvjy" path="res://sprite/race car 2d/real car.png" id="2_tkeb0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl2cg"]
+size = Vector2(256.555, 130.367)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(855, 324)
+scale = Vector2(0.630127, 0.567627)
+script = ExtResource("1_oxmnl")
+
+[node name="enemy_car" type="Sprite2D" parent="."]
+texture = ExtResource("2_tkeb0")
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-19.0439, -6.10321)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(19.3115, 6.10315)
+shape = SubResource("RectangleShape2D_kl2cg")
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1ni8s3mfuvvf"]
+
+[ext_resource type="Texture2D" uid="uid://bfpvd3xexgnac" path="res://sprite/race car 2d/jalan.png" id="1_qm7lv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hm5uv"]
+size = Vector2(511.113, 18.7091)
+
+[node name="Jalan" type="Sprite2D"]
+position = Vector2(576, 323.5)
+scale = Vector2(2.25391, 1.26367)
+texture = ExtResource("1_qm7lv")
+
+[node name="CharacterBody2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, -177.657)
+shape = SubResource("RectangleShape2D_hm5uv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(6.55651e-06, 176.866)
+shape = SubResource("RectangleShape2D_hm5uv")

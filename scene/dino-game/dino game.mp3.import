@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bw0pf5cj0i7kw"
+path="res://.godot/imported/dino game.mp3-281f92b6fac0070a34e0d694bf2bb827.mp3str"
+
+[deps]
+
+source_file="res://scene/dino-game/dino game.mp3"
+dest_files=["res://.godot/imported/dino game.mp3-281f92b6fac0070a34e0d694bf2bb827.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjco3fd2beemd"]
+
+[ext_resource type="FontFile" uid="uid://ddximxi3x03yj" path="res://font/PixelOperator8.ttf" id="1_dr5ea"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mqd6f"]
+font = ExtResource("1_dr5ea")
+font_size = 72
+
+[node name="score-kurma" type="Label"]
+auto_translate_mode = 1
+offset_left = 625.003
+offset_top = -0.78125
+offset_right = 760.003
+offset_bottom = 154.219
+scale = Vector2(1.54546, 1)
+size_flags_vertical = 8
+text = "0"
+label_settings = SubResource("LabelSettings_mqd6f")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

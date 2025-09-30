@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyhrkv6d4x5th"]
+
+[ext_resource type="Texture2D" uid="uid://d11h51ms7085k" path="res://sprite/protect the cilok/protect the cilok.png" id="1_qegvf"]
+[ext_resource type="PackedScene" uid="uid://g4tmv2bvsri2" path="res://scene/protect-the-cilok/cilok.tscn" id="2_a0aol"]
+[ext_resource type="Script" path="res://gdScript/protect-the-cilok/spawner_lalat.gd" id="3_81gci"]
+[ext_resource type="FontFile" uid="uid://ddximxi3x03yj" path="res://font/PixelOperator8.ttf" id="4_gtry6"]
+[ext_resource type="AudioStream" uid="uid://bf8cyxknn5huj" path="res://music/protect_the_cilok.mp3" id="5_48jh7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n7a6a"]
+font = ExtResource("4_gtry6")
+font_size = 72
+
+[node name="protect-the-cilok" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("1_qegvf")
+
+[node name="cilok" parent="." instance=ExtResource("2_a0aol")]
+position = Vector2(641, 383)
+
+[node name="Cilok" parent="cilok" index="0"]
+position = Vector2(1, 13)
+
+[node name="spawner-lalat" type="Node2D" parent="."]
+script = ExtResource("3_81gci")
+
+[node name="Timer-spawn" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="score" type="Label" parent="."]
+offset_right = 1281.0
+offset_bottom = 159.0
+text = "0"
+label_settings = SubResource("LabelSettings_n7a6a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_48jh7")
+autoplay = true
+bus = &"bgm"
+parameters/looping = true
+
+[connection signal="area_entered" from="cilok/Cilok/Area2D" to="spawner-lalat" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer-spawn" to="spawner-lalat" method="_on_timerspawn_timeout"]
+
+[editable path="cilok"]

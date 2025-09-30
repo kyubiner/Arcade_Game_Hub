@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://dold5k8vwv4qv"]
+
+[ext_resource type="PackedScene" uid="uid://dh34uxwdskih8" path="res://scene/dino-game/bg.tscn" id="1_24wwk"]
+[ext_resource type="Script" path="res://gdScript/dino-game/main.gd" id="1_inqih"]
+[ext_resource type="PackedScene" uid="uid://bwu7y51x2cydg" path="res://scene/dino-game/ground.tscn" id="2_ofbl0"]
+[ext_resource type="PackedScene" uid="uid://tlslqwkq1n33" path="res://scene/dino-game/dino.tscn" id="3_hqibw"]
+[ext_resource type="LabelSettings" uid="uid://cb0ouide5jc0j" path="res://ui/label.tres" id="5_i21n2"]
+[ext_resource type="AudioStream" uid="uid://cp1tp03ge6ly4" path="res://music/dino_game.mp3" id="6_6sg7r"]
+[ext_resource type="PackedScene" uid="uid://cabor02uuctk4" path="res://scene/ui_mobile.tscn" id="7_xc4oe"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_inqih")
+
+[node name="Bg" parent="." instance=ExtResource("1_24wwk")]
+
+[node name="Ground" parent="." instance=ExtResource("2_ofbl0")]
+z_index = 1
+
+[node name="Ground2" parent="." instance=ExtResource("2_ofbl0")]
+z_index = 1
+position = Vector2(2562, 0)
+
+[node name="Ground3" parent="." instance=ExtResource("2_ofbl0")]
+z_index = 1
+position = Vector2(5124, 0)
+
+[node name="Dino" parent="." instance=ExtResource("3_hqibw")]
+position = Vector2(112, 568)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 360)
+
+[node name="Score" type="Label" parent="Camera2D"]
+offset_left = -128.0
+offset_top = -360.0
+offset_right = -48.0
+offset_bottom = -330.0
+scale = Vector2(4, 4)
+text = "0"
+label_settings = ExtResource("5_i21n2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6sg7r")
+autoplay = true
+bus = &"bgm"
+parameters/looping = false
+
+[node name="ui_mobile" parent="." instance=ExtResource("7_xc4oe")]
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_6sg7r")
+autoplay = true
+bus = &"bgm"
+parameters/looping = true
+
+[connection signal="button_down" from="ui_mobile/HBoxContainer/key_up" to="Dino" method="_on_key_up_button_down"]
+[connection signal="button_up" from="ui_mobile/HBoxContainer/key_up" to="Dino" method="_on_key_up_button_up"]
+[connection signal="button_down" from="ui_mobile/HBoxContainer/key_down" to="Dino" method="_on_key_down_button_down"]
+[connection signal="button_up" from="ui_mobile/HBoxContainer/key_down" to="Dino" method="_on_key_down_button_up"]
+
+[editable path="ui_mobile"]

@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://8iapxtghc2ol"]
+
+[ext_resource type="PackedScene" uid="uid://b1ni8s3mfuvvf" path="res://scene/race-car-2d/jalan.tscn" id="1_02mkb"]
+[ext_resource type="Script" path="res://gdScript/Race-car-2d/roads.gd" id="1_804i2"]
+[ext_resource type="Script" path="res://gdScript/Race-car-2d/race_car_2d.gd" id="1_fg362"]
+[ext_resource type="PackedScene" uid="uid://br23h21llrv4a" path="res://scene/race-car-2d/car-mc.tscn" id="4_r28jj"]
+[ext_resource type="PackedScene" uid="uid://d5ntpeo3tdr6" path="res://scene/race-car-2d/car-enemy.tscn" id="5_b8slw"]
+[ext_resource type="LabelSettings" uid="uid://cb0ouide5jc0j" path="res://ui/label.tres" id="5_cwlau"]
+[ext_resource type="PackedScene" uid="uid://c3dru7p3skb60" path="res://scene/race-car-2d/enemy_spawner.tscn" id="5_vmppg"]
+[ext_resource type="PackedScene" uid="uid://cabor02uuctk4" path="res://scene/ui_mobile.tscn" id="8_gqxuh"]
+[ext_resource type="AudioStream" uid="uid://cjv2uk45ehn4d" path="res://music/car-engine.mp3" id="12_cjfym"]
+[ext_resource type="AudioStream" uid="uid://dky8nx5tgit7h" path="res://music/car_race.mp3" id="12_yy3vi"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(129, 0)
+scale = Vector2(1, 1.12)
+script = ExtResource("1_fg362")
+
+[node name="roads" type="Node2D" parent="."]
+position = Vector2(576, 323.5)
+scale = Vector2(2.25391, 1.26367)
+script = ExtResource("1_804i2")
+metadata/_edit_lock_ = true
+
+[node name="Jalan" parent="roads" instance=ExtResource("1_02mkb")]
+position = Vector2(0, 0)
+scale = Vector2(1.03549, 1)
+
+[node name="Jalan2" parent="roads" instance=ExtResource("1_02mkb")]
+position = Vector2(-520, 0)
+scale = Vector2(1, 1)
+
+[node name="Jalan3" parent="roads" instance=ExtResource("1_02mkb")]
+position = Vector2(-1030, 0)
+scale = Vector2(1, 1)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("4_r28jj")]
+
+[node name="container_enemy" type="Node2D" parent="."]
+
+[node name="CharacterBody2D3" parent="container_enemy" instance=ExtResource("5_b8slw")]
+position = Vector2(-1214, 169.643)
+
+[node name="CharacterBody2D2" parent="container_enemy" instance=ExtResource("5_b8slw")]
+position = Vector2(-820, 318.75)
+
+[node name="enemy_spawner" parent="." instance=ExtResource("5_vmppg")]
+
+[node name="score" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 450.0
+offset_top = 12.5
+offset_right = 507.0
+offset_bottom = 35.5
+grow_horizontal = 2
+scale = Vector2(4.24, 3.78571)
+text = "0"
+label_settings = ExtResource("5_cwlau")
+horizontal_alignment = 1
+
+[node name="Node" type="Node" parent="."]
+
+[node name="kecepatan" type="Timer" parent="Node"]
+wait_time = 10.0
+
+[node name="Timer" type="Timer" parent="Node"]
+wait_time = 5.0
+autostart = true
+
+[node name="child-timer" type="Timer" parent="Node"]
+wait_time = 20.0
+
+[node name="ui_mobile" parent="." instance=ExtResource("8_gqxuh")]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_cjfym")
+autoplay = true
+bus = &"bgm"
+
+[node name="music-starter" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="music-starter"]
+stream = ExtResource("12_yy3vi")
+autoplay = true
+bus = &"sfx"
+parameters/looping = true
+
+[connection signal="timeout" from="Node/kecepatan" to="." method="_on_kecepatan_timeout"]
+[connection signal="timeout" from="Node/kecepatan" to="roads" method="_on_timer_timeout"]
+[connection signal="timeout" from="Node/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Node/child-timer" to="." method="_on_childtimer_timeout"]
+[connection signal="button_down" from="ui_mobile/HBoxContainer/key_up" to="CharacterBody2D" method="_on_key_up_button_down"]
+[connection signal="button_up" from="ui_mobile/HBoxContainer/key_up" to="CharacterBody2D" method="_on_key_up_button_up"]
+[connection signal="button_down" from="ui_mobile/HBoxContainer/key_down" to="CharacterBody2D" method="_on_key_down_button_down"]
+[connection signal="button_up" from="ui_mobile/HBoxContainer/key_down" to="CharacterBody2D" method="_on_key_down_button_up"]
+
+[editable path="ui_mobile"]

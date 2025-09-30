@@ -1,0 +1,130 @@
+[gd_scene load_steps=15 format=3 uid="uid://b0olrytttunim"]
+
+[ext_resource type="Texture2D" uid="uid://bpuw2eynilkhw" path="res://sprite/catch kurma game/bg_catch_the_kurma.png" id="1_kc4hn"]
+[ext_resource type="Script" path="res://gdScript/catch-kurma-game/piring.gd" id="3_cu1kp"]
+[ext_resource type="Texture2D" uid="uid://cu123waqmkn70" path="res://sprite/catch kurma game/piring.png" id="4_fuu23"]
+[ext_resource type="PackedScene" uid="uid://cntifvpkgsrlh" path="res://scene/catch-kurma/pembatas.tscn" id="4_reaj4"]
+[ext_resource type="Script" path="res://gdScript/catch-kurma-game/objek_spawner.gd" id="5_2q0of"]
+[ext_resource type="PackedScene" uid="uid://dy3lucvfawtvd" path="res://scene/catch-kurma/bom.tscn" id="8_dbb45"]
+[ext_resource type="PackedScene" path="res://scene/catch-kurma/score_kurma.tscn" id="8_r2vd8"]
+[ext_resource type="PackedScene" uid="uid://dae4vrqnrwkm4" path="res://scene/catch-kurma/kurma.tscn" id="8_yub0e"]
+[ext_resource type="Texture2D" uid="uid://kxe6jhkfr0jw" path="res://sprite/ui/ui_left.png" id="9_8ssq4"]
+[ext_resource type="Texture2D" uid="uid://bo6i2wb6tyty8" path="res://sprite/ui/ui_left_pressed.png" id="10_vtd5b"]
+[ext_resource type="Texture2D" uid="uid://do2iqwh5smwen" path="res://sprite/ui/ui_right.png" id="11_346la"]
+[ext_resource type="Texture2D" uid="uid://cvew2h3i3y20x" path="res://sprite/ui/ui_right_pressed.png" id="12_55oym"]
+[ext_resource type="AudioStream" uid="uid://ccgdnwx6fhs0f" path="res://music/cath_kurma.mp3" id="13_8e5hc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivtv1"]
+size = Vector2(481.821, 79.6875)
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.879996, 1.28)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.3183
+offset_top = -7.03125
+offset_right = 1004.68
+offset_bottom = 568.969
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.45455, 1)
+texture = ExtResource("1_kc4hn")
+
+[node name="piring" type="CharacterBody2D" parent="."]
+position = Vector2(730.685, 454.688)
+scale = Vector2(0.5, 0.5)
+collision_mask = 3
+script = ExtResource("3_cu1kp")
+
+[node name="Sprite2D" type="Sprite2D" parent="piring"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_fuu23")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piring"]
+position = Vector2(0, -39.8439)
+shape = SubResource("RectangleShape2D_ivtv1")
+
+[node name="Area2D" type="Area2D" parent="piring"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="piring/Area2D"]
+position = Vector2(0, -39.8439)
+shape = SubResource("RectangleShape2D_ivtv1")
+
+[node name="pembatas" parent="." instance=ExtResource("4_reaj4")]
+
+[node name="objek_spawner" type="Node2D" parent="."]
+script = ExtResource("5_2q0of")
+
+[node name="container_kurma" type="Node2D" parent="."]
+
+[node name="kurma" parent="container_kurma" instance=ExtResource("8_yub0e")]
+position = Vector2(640.912, -297.656)
+
+[node name="kurma2" parent="container_kurma" instance=ExtResource("8_yub0e")]
+position = Vector2(290.91, -102.344)
+
+[node name="container_bom" type="Node2D" parent="."]
+
+[node name="bomb" parent="container_bom" instance=ExtResource("8_dbb45")]
+position = Vector2(1088.64, -161.719)
+
+[node name="spawn_timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="score-kurma" parent="." instance=ExtResource("8_r2vd8")]
+
+[node name="difficult_timer" type="Timer" parent="."]
+wait_time = 20.0
+
+[node name="ui_mobile" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ui_mobile"]
+auto_translate_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -485.0
+offset_top = -154.0
+offset_right = 1435.0
+offset_bottom = 102.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+
+[node name="key_left" type="TextureButton" parent="ui_mobile/HBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+texture_normal = ExtResource("9_8ssq4")
+texture_pressed = ExtResource("10_vtd5b")
+
+[node name="Control" type="Control" parent="ui_mobile/HBoxContainer"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(1400, 0)
+layout_mode = 2
+
+[node name="key_right" type="TextureButton" parent="ui_mobile/HBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+texture_normal = ExtResource("11_346la")
+texture_pressed = ExtResource("12_55oym")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_8e5hc")
+autoplay = true
+bus = &"bgm"
+parameters/looping = true
+
+[connection signal="area_entered" from="piring/Area2D" to="piring" method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="spawn_timer" to="objek_spawner" method="_on_spawn_timer_timeout"]
+[connection signal="timeout" from="difficult_timer" to="objek_spawner" method="_on_difficult_timer_timeout"]
+[connection signal="timeout" from="difficult_timer" to="container_kurma/kurma" method="_on_difficult_timer_timeout"]
+[connection signal="button_down" from="ui_mobile/HBoxContainer/key_left" to="piring" method="_on_key_left_button_down"]
+[connection signal="button_up" from="ui_mobile/HBoxContainer/key_left" to="piring" method="_on_key_left_button_up"]
+[connection signal="button_down" from="ui_mobile/HBoxContainer/key_right" to="piring" method="_on_key_right_button_down"]
+[connection signal="button_up" from="ui_mobile/HBoxContainer/key_right" to="piring" method="_on_key_right_button_up"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwu7y51x2cydg"]
+
+[ext_resource type="Texture2D" uid="uid://0olhm3jnlxpc" path="res://sprite/dino game/background/ground.png" id="1_15por"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui2dj"]
+size = Vector2(2304, 89)
+
+[node name="Ground" type="StaticBody2D"]
+scale = Vector2(1.112, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 624)
+texture = ExtResource("1_15por")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1152, 675.5)
+shape = SubResource("RectangleShape2D_ui2dj")

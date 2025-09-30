@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://cntifvpkgsrlh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cloy"]
+size = Vector2(2.55905, 6.86675)
+
+[node name="pembatas" type="Node2D"]
+
+[node name="pembatas1" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pembatas1"]
+position = Vector2(-9.20285, 488.734)
+rotation = 3.14159
+scale = Vector2(6.70425, -22.1857)
+shape = SubResource("RectangleShape2D_4cloy")
+
+[node name="pembatas2" type="StaticBody2D" parent="."]
+position = Vector2(0, -2.38419e-05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pembatas2"]
+position = Vector2(1464.27, 491.229)
+rotation = 3.14159
+scale = Vector2(6.70425, -22.1857)
+shape = SubResource("RectangleShape2D_4cloy")

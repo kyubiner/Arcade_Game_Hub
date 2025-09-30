@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://buh6b0oge2lvr"]
+
+[ext_resource type="Script" path="res://gdScript/dino-game/bird.gd" id="1_57kjv"]
+[ext_resource type="Texture2D" uid="uid://d278axf4dyut" path="res://sprite/dino game/obstacle/Bird.png" id="1_sembj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cetdo"]
+atlas = ExtResource("1_sembj")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyn6y"]
+atlas = ExtResource("1_sembj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bg5kk"]
+atlas = ExtResource("1_sembj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai8da"]
+atlas = ExtResource("1_sembj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c6xdk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cetdo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xyn6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bg5kk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai8da")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mrmu"]
+size = Vector2(11, 13)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ww3la"]
+radius = 9.0
+height = 22.6667
+
+[node name="bird" type="Area2D"]
+scale = Vector2(4, 4)
+script = ExtResource("1_57kjv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_c6xdk")
+autoplay = "default"
+frame_progress = 0.53312
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-9.5, 0.5)
+shape = SubResource("RectangleShape2D_7mrmu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(5, 0)
+shape = SubResource("CapsuleShape2D_ww3la")

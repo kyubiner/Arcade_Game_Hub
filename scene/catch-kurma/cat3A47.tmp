@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://b0olrytttunim"]
+
+[ext_resource type="Texture2D" uid="uid://cq86auvca47f2" path="res://sprite/catch kurma game/background.png" id="1_1sb70"]
+[ext_resource type="Script" path="res://gdScript/catch-kurma-game/piring.gd" id="3_cu1kp"]
+[ext_resource type="Texture2D" uid="uid://cu123waqmkn70" path="res://sprite/catch kurma game/piring.png" id="4_fuu23"]
+[ext_resource type="PackedScene" uid="uid://cntifvpkgsrlh" path="res://scene/catch-kurma/pembatas.tscn" id="4_reaj4"]
+[ext_resource type="Script" path="res://gdScript/catch-kurma-game/objek_spawner.gd" id="5_2q0of"]
+[ext_resource type="Texture2D" uid="uid://tyfbvq7nk2et" path="res://sprite/catch kurma game/bomb.png" id="5_dsqlk"]
+[ext_resource type="Texture2D" uid="uid://cyhicx6keytof" path="res://sprite/catch kurma game/kurma.png" id="6_5i02k"]
+[ext_resource type="PackedScene" uid="uid://dy3lucvfawtvd" path="res://scene/catch-kurma/bom.tscn" id="8_dbb45"]
+[ext_resource type="PackedScene" uid="uid://dae4vrqnrwkm4" path="res://scene/catch-kurma/kurma.tscn" id="8_yub0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ivtv1"]
+size = Vector2(481.821, 79.6875)
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(0.879996, 1.28)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.3183
+offset_top = -7.03125
+offset_right = 1004.68
+offset_bottom = 568.969
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.45455, 1)
+texture = ExtResource("1_1sb70")
+
+[node name="piring" type="CharacterBody2D" parent="."]
+position = Vector2(720, 485)
+scale = Vector2(0.5, 0.5)
+collision_mask = 3
+script = ExtResource("3_cu1kp")
+
+[node name="Sprite2D" type="Sprite2D" parent="piring"]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_fuu23")
+
+[node name="Area2D" type="Area2D" parent="piring"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="piring/Area2D"]
+position = Vector2(0, -39.8439)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ivtv1")
+
+[node name="pembatas" parent="." instance=ExtResource("4_reaj4")]
+
+[node name="objek_spawner" type="Node2D" parent="."]
+script = ExtResource("5_2q0of")
+
+[node name="Sprite2D2" type="Sprite2D" parent="objek_spawner"]
+position = Vector2(800.004, -146.094)
+scale = Vector2(0.669036, 0.481725)
+texture = ExtResource("5_dsqlk")
+
+[node name="Sprite2D" type="Sprite2D" parent="objek_spawner"]
+position = Vector2(756.822, -270)
+scale = Vector2(0.494142, 0.329346)
+texture = ExtResource("6_5i02k")
+
+[node name="container_kurma" type="Node2D" parent="."]
+
+[node name="kurma" parent="container_kurma" instance=ExtResource("8_yub0e")]
+position = Vector2(362.502, 108.594)
+
+[node name="container_bom" type="Node2D" parent="."]
+
+[node name="bomb" parent="container_bom" instance=ExtResource("8_dbb45")]
+position = Vector2(535.23, 107.031)
+
+[node name="spawn_timer" type="Timer" parent="."]
+wait_time = 4.0

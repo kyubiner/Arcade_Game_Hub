@@ -1,0 +1,200 @@
+[gd_scene load_steps=10 format=3 uid="uid://cce8kosqoqjo7"]
+
+[ext_resource type="Script" path="res://gdScript/option_mini_game.gd" id="1_0wnia"]
+[ext_resource type="Texture2D" uid="uid://0dky88phm0fs" path="res://sprite/race car 2d/car-race.png" id="2_drrfj"]
+[ext_resource type="Texture2D" uid="uid://cjv3fvmxquo3q" path="res://sprite/button/normal-button.png" id="2_yodb5"]
+[ext_resource type="Texture2D" uid="uid://c3ycdbnabqqct" path="res://sprite/button/focus-button.png" id="3_flib8"]
+[ext_resource type="LabelSettings" uid="uid://co2e0c20pf5eo" path="res://ui/label-mainMenu.tres" id="5_cyhs2"]
+[ext_resource type="Texture2D" uid="uid://b38ad48yvf2rd" path="res://ui/button-animation.tres" id="5_hl0bh"]
+[ext_resource type="Texture2D" uid="uid://dsoek7rdbhmwc" path="res://sprite/catch kurma game/catch_kurma.png" id="6_ckevk"]
+[ext_resource type="Texture2D" uid="uid://dcsu54rqsueth" path="res://sprite/protect the cilok/icon-protect-the-cilok.png" id="8_llvfd"]
+[ext_resource type="Texture2D" uid="uid://2mi82fyxsdnp" path="res://sprite/dino game/logo_dinoRun.png" id="9_ns8uc"]
+
+[node name="HBoxContainer" type="HBoxContainer"]
+auto_translate_mode = 1
+anchors_preset = -1
+anchor_left = 0.172
+anchor_top = 0.128
+anchor_right = 0.828
+anchor_bottom = 0.897
+offset_left = -0.144012
+offset_top = -16.444
+offset_right = 0.143921
+offset_bottom = 0.244019
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 500
+script = ExtResource("1_0wnia")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 139
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+texture = ExtResource("2_drrfj")
+expand_mode = 4
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../VBoxContainer2/VBoxContainer2/TextureButton4")
+focus_neighbor_top = NodePath("../../../VBoxContainer2/VBoxContainer2/TextureButton4")
+focus_neighbor_right = NodePath("../../../VBoxContainer2/VBoxContainer/TextureButton3")
+focus_neighbor_bottom = NodePath("../../VBoxContainer2/TextureButton2")
+focus_next = NodePath("../../../VBoxContainer2/VBoxContainer/TextureButton3")
+focus_previous = NodePath("../../../VBoxContainer2/VBoxContainer2/TextureButton4")
+texture_normal = ExtResource("2_yodb5")
+texture_pressed = ExtResource("3_flib8")
+texture_focused = ExtResource("5_hl0bh")
+
+[node name="Label" type="Label" parent="VBoxContainer/VBoxContainer/TextureButton"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+label_settings = ExtResource("5_cyhs2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/VBoxContainer2"]
+auto_translate_mode = 1
+layout_mode = 2
+texture = ExtResource("6_ckevk")
+expand_mode = 4
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer/VBoxContainer2"]
+auto_translate_mode = 1
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../VBoxContainer2/VBoxContainer/TextureButton3")
+focus_neighbor_top = NodePath("../../VBoxContainer/TextureButton")
+focus_neighbor_right = NodePath("../../../VBoxContainer2/VBoxContainer2/TextureButton4")
+focus_neighbor_bottom = NodePath("../../../VBoxContainer2/VBoxContainer/TextureButton3")
+focus_next = NodePath("../../../VBoxContainer2/VBoxContainer2/TextureButton4")
+focus_previous = NodePath("../../../VBoxContainer2/VBoxContainer/TextureButton3")
+texture_normal = ExtResource("2_yodb5")
+texture_pressed = ExtResource("3_flib8")
+texture_focused = ExtResource("5_hl0bh")
+
+[node name="Label2" type="Label" parent="VBoxContainer/VBoxContainer2/TextureButton2"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+label_settings = ExtResource("5_cyhs2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 139
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+texture = ExtResource("8_llvfd")
+expand_mode = 4
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer2/VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../VBoxContainer/VBoxContainer/TextureButton")
+focus_neighbor_top = NodePath("../../../VBoxContainer/VBoxContainer2/TextureButton2")
+focus_neighbor_right = NodePath("../../../VBoxContainer/VBoxContainer2/TextureButton2")
+focus_neighbor_bottom = NodePath("../../VBoxContainer2/TextureButton4")
+focus_next = NodePath("../../../VBoxContainer/VBoxContainer2/TextureButton2")
+focus_previous = NodePath("../../../VBoxContainer/VBoxContainer/TextureButton")
+texture_normal = ExtResource("2_yodb5")
+texture_pressed = ExtResource("3_flib8")
+texture_focused = ExtResource("5_hl0bh")
+stretch_mode = 0
+
+[node name="Label3" type="Label" parent="VBoxContainer2/VBoxContainer/TextureButton3"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+label_settings = ExtResource("5_cyhs2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer2"]
+auto_translate_mode = 1
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/VBoxContainer2"]
+auto_translate_mode = 1
+layout_mode = 2
+texture = ExtResource("9_ns8uc")
+expand_mode = 4
+
+[node name="TextureButton4" type="TextureButton" parent="VBoxContainer2/VBoxContainer2"]
+auto_translate_mode = 1
+custom_minimum_size = Vector2(32, 14)
+layout_mode = 2
+focus_neighbor_left = NodePath("../../../VBoxContainer/VBoxContainer2/TextureButton2")
+focus_neighbor_top = NodePath("../../VBoxContainer/TextureButton3")
+focus_neighbor_right = NodePath("../../../VBoxContainer/VBoxContainer/TextureButton")
+focus_neighbor_bottom = NodePath("../../../VBoxContainer/VBoxContainer/TextureButton")
+focus_next = NodePath("../../../VBoxContainer/VBoxContainer/TextureButton")
+focus_previous = NodePath("../../../VBoxContainer/VBoxContainer2/TextureButton2")
+texture_normal = ExtResource("2_yodb5")
+texture_pressed = ExtResource("3_flib8")
+texture_focused = ExtResource("5_hl0bh")
+stretch_mode = 0
+
+[node name="Label4" type="Label" parent="VBoxContainer2/VBoxContainer2/TextureButton4"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "PLAY"
+label_settings = ExtResource("5_cyhs2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer2/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer2/VBoxContainer2/TextureButton4" to="." method="_on_texture_button_4_pressed"]

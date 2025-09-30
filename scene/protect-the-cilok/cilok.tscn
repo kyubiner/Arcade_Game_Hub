@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://g4tmv2bvsri2"]
+
+[ext_resource type="Texture2D" uid="uid://dtp33tv52e4ad" path="res://sprite/protect the cilok/cilok.png" id="1_fsq7g"]
+
+[node name="cilok" type="StaticBody2D"]
+
+[node name="Cilok" type="Sprite2D" parent="."]
+position = Vector2(639, 380)
+scale = Vector2(0.641304, 0.620477)
+texture = ExtResource("1_fsq7g")
+
+[node name="Area2D" type="Area2D" parent="Cilok"]
+position = Vector2(-1.55933, -20.9516)
+scale = Vector2(1.55932, 1.61166)
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Cilok/Area2D"]
+position = Vector2(635, 387)
+polygon = PackedVector2Array(-680, -469, -588, -468, -588, -458, -567, -458, -567, -449, -547, -449, -547, -439, -537, -439, -536, -429, -526, -429, -526, -419, -516, -419, -516, -339, -526, -339, -526, -329, -537, -329, -537, -320, -547, -319, -547, -310, -567, -310, -567, -300, -587, -300, -588, -290, -680, -290, -680, -299, -701, -299, -701, -309, -721, -310, -722, -319, -732, -320, -732, -329, -742, -329, -742, -339, -752, -339, -752, -419, -742, -419, -742, -429, -732, -429, -732, -439, -721, -439, -721, -449, -701, -449, -701, -459, -680, -459)

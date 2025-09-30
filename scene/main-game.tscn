@@ -1,0 +1,134 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6erc6x87lbfp"]
+
+[ext_resource type="StyleBox" uid="uid://cycymt2crd0ij" path="res://ui/main-menu.tres" id="1_2qbt1"]
+[ext_resource type="Script" path="res://gdScript/main_menu.gd" id="1_4ojd2"]
+[ext_resource type="PackedScene" uid="uid://cce8kosqoqjo7" path="res://scene/option-miniGame.tscn" id="3_cppfn"]
+[ext_resource type="PackedScene" uid="uid://c4t47uj61wtu5" path="res://addons/godot_super-wakatime/counter.tscn" id="4_ctwpr"]
+[ext_resource type="Texture2D" uid="uid://b5afo4i4ar2rh" path="res://sprite/ui/ui_pc.png" id="5_dplbo"]
+[ext_resource type="Texture2D" uid="uid://0eaqtyowcsd0" path="res://sprite/ui/ui_pc_pressed.png" id="6_5fb78"]
+[ext_resource type="AudioStream" uid="uid://35pscyjem4qf" path="res://music/main_menu.mp3" id="7_hvck6"]
+[ext_resource type="LabelSettings" uid="uid://co2e0c20pf5eo" path="res://ui/label-mainMenu.tres" id="8_ek4dy"]
+[ext_resource type="Texture2D" uid="uid://kxe6jhkfr0jw" path="res://sprite/ui/ui_left.png" id="9_v83rj"]
+[ext_resource type="Texture2D" uid="uid://bo6i2wb6tyty8" path="res://sprite/ui/ui_left_pressed.png" id="10_ksf2j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1v8h"]
+bg_color = Color(0.267813, 0.697959, 0.445809, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ea6wn"]
+bg_color = Color(0.267813, 0.697959, 0.445809, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(0, 7)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ojd2")
+
+[node name="Button" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -11.5
+offset_right = 28.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_e1v8h")
+theme_override_styles/hover = ExtResource("1_2qbt1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ea6wn")
+text = "Creadit"
+metadata/_edit_use_anchors_ = true
+
+[node name="option-mini-game" parent="." instance=ExtResource("3_cppfn")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -252.5
+offset_right = 380.0
+offset_bottom = 252.5
+
+[node name="Counter" parent="." instance=ExtResource("4_ctwpr")]
+visible = false
+layout_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.296
+anchor_bottom = 0.457
+offset_left = 1191.0
+offset_top = 12.0
+offset_right = -2771.88
+offset_bottom = -61.04
+grow_horizontal = 0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("5_dplbo")
+texture_pressed = ExtResource("6_5fb78")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_hvck6")
+autoplay = true
+bus = &"bgm"
+parameters/looping = true
+
+[node name="Label" type="Label" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -521.0
+offset_top = -328.0
+offset_right = -443.0
+offset_bottom = -304.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "QUIT"
+label_settings = ExtResource("8_ek4dy")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -610.0
+offset_top = -344.0
+offset_right = -354.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_v83rj")
+texture_focused = ExtResource("10_ksf2j")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

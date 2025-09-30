@@ -1,0 +1,210 @@
+[gd_scene load_steps=14 format=3 uid="uid://544nv2oq75h7"]
+
+[ext_resource type="FontFile" uid="uid://ddximxi3x03yj" path="res://font/PixelOperator8.ttf" id="1_blmpk"]
+[ext_resource type="Script" path="res://gdScript/game_over.gd" id="1_k84x8"]
+[ext_resource type="Texture2D" uid="uid://cjv3fvmxquo3q" path="res://sprite/button/normal-button.png" id="1_wlre1"]
+[ext_resource type="Texture2D" uid="uid://c3ycdbnabqqct" path="res://sprite/button/focus-button.png" id="2_msbot"]
+[ext_resource type="Texture2D" uid="uid://bud6j4g4m50ys" path="res://sprite/ui/button_screenshoot_.png" id="5_egetu"]
+[ext_resource type="Texture2D" uid="uid://3lmjg8evn1nj" path="res://sprite/ui/button_screenshot_focused.png" id="6_hgc8f"]
+[ext_resource type="AudioStream" uid="uid://clyfxfser8nw8" path="res://music/game_over.mp3" id="7_in3hq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6mo1j"]
+font = ExtResource("1_blmpk")
+font_size = 104
+font_color = Color(0, 0, 0, 1)
+outline_size = 25
+outline_color = Color(0.753984, 0.753984, 0.753984, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6w3lv"]
+font = ExtResource("1_blmpk")
+font_size = 96
+font_color = Color(0, 0, 0, 1)
+outline_size = 25
+outline_color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_13iho"]
+font = ExtResource("1_blmpk")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ps88"]
+font = ExtResource("1_blmpk")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jh5nw"]
+bg_color = Color(0.203922, 0.65098, 0.403922, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_djhis"]
+font = ExtResource("1_blmpk")
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k84x8")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+scale = Vector2(1.25293, 1.25174)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.119531
+anchor_top = 0.225222
+anchor_right = 0.902344
+anchor_bottom = 0.276611
+offset_left = -140.0
+offset_top = -90.16
+offset_right = 136.0
+offset_bottom = -23.16
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_6mo1j")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="score" type="Label" parent="."]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 218.0
+offset_right = 1281.0
+offset_bottom = 314.0
+text = "0"
+label_settings = SubResource("LabelSettings_6w3lv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -642.0
+offset_top = -178.0
+offset_right = 12.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.96, 2)
+alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer"]
+auto_translate_mode = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../TextureButton")
+focus_neighbor_bottom = NodePath("../TextureButton")
+texture_normal = ExtResource("1_wlre1")
+texture_hover = ExtResource("2_msbot")
+texture_focused = ExtResource("2_msbot")
+
+[node name="Label2" type="Label" parent="VBoxContainer/TextureButton2"]
+auto_translate_mode = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -14.0
+offset_right = 55.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Return"
+label_settings = SubResource("LabelSettings_13iho")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_neighbor_top = NodePath("../TextureButton2")
+focus_neighbor_bottom = NodePath("../TextureButton2")
+texture_normal = ExtResource("1_wlre1")
+texture_hover = ExtResource("2_msbot")
+texture_focused = ExtResource("2_msbot")
+
+[node name="Label" type="Label" parent="VBoxContainer/TextureButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -11.5
+offset_right = 44.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_8ps88")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="take_screenhot" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1169.0
+offset_top = 12.0
+offset_right = 1425.0
+offset_bottom = 268.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("5_egetu")
+texture_hover = ExtResource("6_hgc8f")
+stretch_mode = 0
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 367.0
+offset_top = 18.0
+offset_right = 1448.0
+offset_bottom = 85.0
+scale = Vector2(0.5, 0.5)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jh5nw")
+
+[node name="Label2" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -539.0
+offset_top = -28.0
+offset_right = 539.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Take screenshot success"
+label_settings = SubResource("LabelSettings_djhis")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_in3hq")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="take_screenhot" to="." method="_on_take_screenhot_pressed"]

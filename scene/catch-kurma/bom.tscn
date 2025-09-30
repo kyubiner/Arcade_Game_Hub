@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dy3lucvfawtvd"]
+
+[ext_resource type="Script" path="res://gdScript/catch-kurma-game/kurma-bomb.gd" id="1_nqmpe"]
+[ext_resource type="Texture2D" uid="uid://tyfbvq7nk2et" path="res://sprite/catch kurma game/bomb.png" id="2_ca5bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8o7s"]
+size = Vector2(80, 73)
+
+[node name="bomb" type="CharacterBody2D"]
+script = ExtResource("1_nqmpe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.35)
+texture = ExtResource("2_ca5bo")
+
+[node name="bomb" type="Area2D" parent="Sprite2D"]
+scale = Vector2(2, 2.85714)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/bomb"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_r8o7s")

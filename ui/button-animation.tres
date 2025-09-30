@@ -1,0 +1,11 @@
+[gd_resource type="AnimatedTexture" load_steps=3 format=3 uid="uid://b38ad48yvf2rd"]
+
+[ext_resource type="Texture2D" uid="uid://cjv3fvmxquo3q" path="res://sprite/button/normal-button.png" id="1_d6poc"]
+[ext_resource type="Texture2D" uid="uid://c3ycdbnabqqct" path="res://sprite/button/focus-button.png" id="2_j8svu"]
+
+[resource]
+frames = 2
+frame_0/texture = ExtResource("1_d6poc")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("2_j8svu")
+frame_1/duration = 0.3
