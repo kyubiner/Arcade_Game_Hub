@@ -22,3 +22,5 @@ icon.svg
 default_bus_layout.tres
 colors_demo.gdshader
 colors_demo.gd
+.import
+.godot
